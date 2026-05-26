@@ -1620,12 +1620,11 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Cantoneiras Brancas Retro (Estilo ticket exclusivo) */
-.qrcode-corners .corner {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border: 2px solid var(--white-vintage);
+@media (max-width: 480px) {
+    .vale-tatuagem-stub-img {
+        max-height: 60vh;
+    }
+}
     pointer-events: none;
 }
 
@@ -1792,7 +1791,7 @@ body {
     }
     
     /* Modal de Ticket no Celular */
-    .gift-overlay { padding: 60px 10px 25px 10px; }
+    .gift-overlay { padding: 60px 8px 25px 8px; }
     
     .ticket-card {
         transform: scale(0.95);
@@ -1811,12 +1810,14 @@ body {
     .voucher-message { font-size: 0.78rem; line-height: 1.5; }
     .voucher-signatures { flex-direction: column; gap: 6px; text-align: center; }
     
-    .ticket-stub-section { padding: 25px 20px 30px 20px; }
+    .ticket-stub-section { padding: 20px 16px 25px 16px; }
     .stub-exclusive-badge { font-size: 0.95rem; }
     .stub-qrcode-container { width: 140px; height: 140px; padding: 14px; }
     
     .vale-tatuagem-stub {
-        max-width: 160px;
+        max-width: 90vw;
+        width: 100%;
+        margin: 0 auto;
     }
     
     @keyframes scan-line-movement {
