@@ -1,0 +1,1930 @@
+/* ==========================================================================
+   SISTEMA DE DESIGN E ESTILOS GERAIS (ESTÉTICA SKATE + REGGAETON / Y2K)
+   ========================================================================== */
+
+:root {
+    /* Paleta de Cores do Vale Tatuagem (CBJR ✕ Bad Bunny) */
+    --bg-color: #080709;            /* Preto asfalto fosco profundo */
+    --bg-card: #121014;             /* Cinza-escuro charcoal estilo grunge */
+    --red-glow: #bd081c;            /* Vermelho carmesim vibrante do vale físico */
+    --red-dark: #7a000c;            /* Vermelho sangue escuro profundo */
+    --white-vintage: #f4f3ef;       /* Branco marfim antigo / Papel envelhecido */
+    --white-muted: #b5b2ba;         /* Cinza prateado quente / Texto secundário */
+    
+    /* Tipografia de Identidade Visual */
+    --font-gothic: 'Pirata One', cursive;     /* Títulos / Identidade Tatuagem Gótica */
+    --font-slab: 'Special Elite', serif;       /* Estilo Máquina de Escrever / Grunge */
+    --font-heading: 'Rock Salt', cursive;      /* Cursiva Rebelde / Anos 2000 */
+    --font-body: 'Montserrat', sans-serif;     /* Clean / Moderna / Cinematográfica */
+    --font-display: 'Bebas Neue', sans-serif;  /* Display Bold / MTV / LCD */
+    
+    /* Efeitos Visuais */
+    --shadow-vintage: 0 20px 45px rgba(0, 0, 0, 0.9), 0 5px 15px rgba(0, 0, 0, 0.7);
+    --shadow-glow: 0 0 25px rgba(189, 8, 28, 0.55);
+    --border-radius: 12px;
+    --transition-smooth: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset Geral de Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--white-vintage);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Custom Scrollbar (Estilo Grunge) */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--red-dark);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--red-glow);
+}
+
+/* ==========================================================================
+   EFEITOS DE AMBIENTAÇÃO E TEXTURA (MTV / ANALÓGICO VHS)
+   ========================================================================== */
+
+/* Grão de Filme Analógico (Película 35mm ativa) */
+.film-grain {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E') repeat;
+    opacity: 0.75;
+    pointer-events: none;
+    z-index: 9999;
+    animation: grain-dance 8s steps(10) infinite;
+}
+
+@keyframes grain-dance {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -25%); }
+    40% { transform: translate(-5%, 25%); }
+    50% { transform: translate(-15%, 10%); }
+    65% { transform: translate(15%, -10%); }
+    80% { transform: translate(3%, 35%); }
+    90% { transform: translate(-10%, 10%); }
+}
+
+/* Vinheta de Tela (Gradiente Radial para profundidade cinematográfica) */
+.vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 30%, rgba(0, 0, 0, 0.75) 100%);
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Canvas de Partículas de Fundo */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   ILUSTRAÇÕES SVG VETORIAIS FLUTUANTES (TATUAGENS E CROSSOVER TROPICAL)
+   ========================================================================== */
+
+.bg-svg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bg-tattoo {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    transition: transform 1.5s ease-in-out;
+}
+
+.svg-moth {
+    top: 5%;
+    left: -50px;
+    transform: rotate(20deg);
+    animation: slow-float-moth 15s infinite alternate ease-in-out;
+}
+
+.svg-palm {
+    top: 25%;
+    right: -70px;
+    transform: rotate(-10deg);
+    animation: slow-float-palm 17s infinite alternate ease-in-out;
+}
+
+.svg-planchette {
+    bottom: 12%;
+    left: -70px;
+    transform: rotate(-12deg);
+    animation: slow-float-planchette 13s infinite alternate ease-in-out;
+}
+
+.svg-rose {
+    bottom: 5%;
+    right: -60px;
+    transform: rotate(15deg);
+    animation: slow-float-rose 14s infinite alternate ease-in-out;
+}
+
+@keyframes slow-float-moth {
+    0% { transform: translateY(0) rotate(20deg) scale(1); }
+    100% { transform: translateY(15px) rotate(24deg) scale(1.03); }
+}
+@keyframes slow-float-palm {
+    0% { transform: translateY(0) rotate(-10deg) scale(1); }
+    100% { transform: translateY(-18px) rotate(-7deg) scale(1.05); }
+}
+@keyframes slow-float-planchette {
+    0% { transform: translateY(0) rotate(-12deg); }
+    100% { transform: translateY(12px) rotate(-8deg); }
+}
+@keyframes slow-float-rose {
+    0% { transform: translateY(0) rotate(15deg) scale(1); }
+    100% { transform: translateY(-15px) rotate(19deg) scale(1.04); }
+}
+
+/* ==========================================================================
+   SITE WRAPPER & FLUXO DE PÁGINA ÚNICA
+   ========================================================================== */
+
+.site-wrapper {
+    width: 100%;
+    max-width: 480px; /* Excelente enquadramento simulando celular em telas de desktop */
+    min-height: 100vh;
+    padding: 50px 24px 70px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 55px;
+    z-index: 5;
+    position: relative;
+}
+
+/* ==========================================================================
+   SEÇÃO 1: CABEÇALHO EMOCIONAL (HERO)
+   ========================================================================== */
+
+.hero-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    padding-top: 15px;
+}
+
+.deco-stars-top {
+    font-size: 1.1rem;
+    letter-spacing: 0.6em;
+    color: var(--red-glow);
+    opacity: 0.75;
+    text-shadow: 0 0 10px rgba(189, 8, 28, 0.4);
+    margin-bottom: 2px;
+}
+
+.hero-title {
+    font-family: var(--font-gothic);
+    font-size: 2.7rem;
+    font-weight: normal;
+    text-transform: lowercase;
+    color: var(--white-vintage);
+    text-shadow: 0 0 20px rgba(189, 8, 28, 0.3);
+    line-height: 1.1;
+    animation: anim-fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-heart-pulse {
+    display: inline-block;
+    font-size: 1.8rem;
+    color: var(--red-glow);
+    filter: drop-shadow(0 0 8px rgba(189, 8, 28, 0.7));
+    animation: anim-heart-throb 1.5s infinite ease-in-out;
+}
+
+@keyframes anim-heart-throb {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15) rotate(5deg); }
+}
+
+.hero-quote {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-weight: 300;
+    color: var(--white-muted);
+    font-style: italic;
+    padding: 0 5px;
+    animation: anim-fade-in-up 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Faixa Divisora VHS */
+.vintage-tape-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 12px;
+    opacity: 0.6;
+}
+
+.grunge-line {
+    height: 1px;
+    flex-grow: 1;
+    background: linear-gradient(90deg, transparent, var(--white-muted) 50%, transparent);
+}
+
+.star-sparkle {
+    color: var(--red-glow);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   NOVO: PLAYER VISUAL MP3 Y2K (ESTILO IPOD/WINAMP) 🎵
+   ========================================================================== */
+
+.y2k-mp3-player {
+    width: 100%;
+    background: rgba(18, 16, 20, 0.7);
+    border: 2px solid rgba(189, 8, 28, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), inset 0 0 15px rgba(189, 8, 28, 0.1);
+    z-index: 5;
+    position: relative;
+}
+
+.y2k-player-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Tela LCD */
+.y2k-lcd-screen {
+    background-color: #070708;
+    border: 1.5px solid rgba(244, 243, 239, 0.1);
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.95);
+}
+
+.y2k-lcd-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    color: var(--white-muted);
+    opacity: 0.85;
+    margin-bottom: 8px;
+    letter-spacing: 0.08em;
+}
+
+.y2k-status-indicator {
+    color: var(--red-glow);
+    text-shadow: 0 0 6px rgba(189, 8, 28, 0.5);
+    cursor: pointer;
+}
+
+/* Letreiro Rolante */
+.y2k-track-title-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    height: 18px;
+    position: relative;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed rgba(244, 243, 239, 0.06);
+    padding-bottom: 3px;
+}
+
+.y2k-track-title {
+    display: inline-block;
+    padding-left: 100%;
+    animation: y2k-ticker-slide 16s linear infinite;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--red-glow);
+    text-shadow: 0 0 8px rgba(189, 8, 28, 0.65);
+}
+
+@keyframes y2k-ticker-slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Equalizador */
+.y2k-equalizer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    height: 28px;
+    width: 100%;
+}
+
+.y2k-bar {
+    width: 10px;
+    background-color: var(--red-glow);
+    border-radius: 1px;
+    height: 4px;
+    box-shadow: 0 0 6px rgba(189, 8, 28, 0.6);
+    transition: height 0.12s ease-in-out;
+}
+
+.y2k-bar:nth-child(even) {
+    background-color: var(--white-vintage);
+    box-shadow: 0 0 6px rgba(244, 243, 239, 0.3);
+}
+
+/* Controles */
+.y2k-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.y2k-btn {
+    background: #18161c;
+    border: 1.5px solid rgba(244, 243, 239, 0.12);
+    color: var(--white-vintage);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: var(--transition-smooth);
+}
+
+.y2k-btn:hover {
+    border-color: var(--red-glow);
+    color: var(--red-glow);
+    transform: scale(1.08);
+}
+
+.y2k-btn--main {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #221e26 0%, #100e12 100%);
+    border-color: rgba(244, 243, 239, 0.2);
+}
+
+.y2k-btn--main:hover {
+    box-shadow: 0 0 15px rgba(189, 8, 28, 0.4);
+    border-color: var(--red-glow);
+}
+
+.y2k-player-caption {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--white-muted);
+    opacity: 0.65;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   SEÇÃO 2: POLAROID INTERATIVA E MULTIDIMENSIONAL
+   ========================================================================== */
+
+.photo-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+    padding: 10px 0;
+}
+
+.polaroid-float {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    transform: rotate(-3deg);
+    transform-style: preserve-3d;
+    will-change: transform;
+    animation: floaty-polaroid 5s infinite alternate ease-in-out;
+}
+
+@keyframes floaty-polaroid {
+    0% { transform: translateY(0) rotate(-3deg); }
+    100% { transform: translateY(-10px) rotate(-1.5deg); }
+}
+
+.polaroid-frame {
+    background: var(--white-vintage);
+    padding: 18px 18px 26px 18px;
+    border-radius: 4px;
+    box-shadow: var(--shadow-vintage);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+/* Reflexo de Película Analógica sobre a foto */
+.lens-flare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 45%, rgba(189,8,28,0.06) 100%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.polaroid-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Foto sempre perfeitamente quadrada */
+    background: #0d0c0e;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(12%) contrast(106%) brightness(96%);
+    transition: transform 0.6s ease;
+}
+
+.polaroid-float:hover .photo-img {
+    transform: scale(1.04);
+}
+
+.polaroid-legend {
+    padding-top: 18px;
+    text-align: center;
+    color: #111111;
+    transform: translateZ(20px); /* Traz a legenda ligeiramente à frente em 3D */
+}
+
+.polaroid-name {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 6px;
+    letter-spacing: -0.05em;
+    color: #080709;
+}
+
+.polaroid-sub {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #55555d;
+    display: block;
+}
+
+/* Adesivos (Stickers) colados na moldura */
+.sticker {
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-card);
+    color: var(--white-vintage);
+    border: 1.5px solid var(--white-vintage);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sticker:hover {
+    transform: scale(1.25) rotate(15deg);
+    border-color: var(--red-glow);
+    color: var(--red-glow);
+}
+
+.sticker-star { top: -12px; left: -12px; transform: rotate(-15deg); }
+.sticker-heart { bottom: 25px; right: -15px; transform: rotate(20deg); color: var(--red-glow); }
+.sticker-bolt { top: 50%; left: -18px; transform: translateY(-50%) rotate(10deg); }
+.sticker-rose { top: -10px; right: 15px; transform: rotate(35deg); }
+
+/* Animação de Sticker Pop */
+.pop-animation {
+    animation: pop-wiggle 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes pop-wiggle {
+    0% { transform: scale(1) rotate(0deg); }
+    30% { transform: scale(1.4) rotate(-20deg); }
+    60% { transform: scale(1.2) rotate(20deg); }
+    100% { transform: scale(1.25) rotate(0deg); }
+}
+
+/* ==========================================================================
+   NOVO: CONTADOR EMOCIONAL RETRO DIGITAL ⏳
+   ========================================================================== */
+
+.retro-scoreboard {
+    width: 100%;
+    background: #0f0d12;
+    border: 1px solid rgba(189, 8, 28, 0.2);
+    border-radius: var(--border-radius);
+    padding: 22px 16px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.scoreboard-title {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--white-muted);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.scoreboard-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.timer-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #060507;
+    border: 1px solid rgba(244, 243, 239, 0.08);
+    border-radius: 8px;
+    min-width: 68px;
+    padding: 8px 6px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+}
+
+.timer-num {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--red-glow);
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 12px rgba(189, 8, 28, 0.85);
+    line-height: 1.1;
+}
+
+.timer-label {
+    font-family: var(--font-body);
+    font-size: 0.52rem;
+    font-weight: 700;
+    color: var(--white-muted);
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+}
+
+.timer-divider {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--red-glow);
+    text-shadow: 0 0 10px rgba(189, 8, 28, 0.7);
+    line-height: 1;
+    animation: y2k-blink 1s infinite alternate;
+}
+
+@keyframes y2k-blink {
+    0% { opacity: 0.25; }
+    100% { opacity: 1; }
+}
+
+/* ==========================================================================
+   SEÇÃO 3: BLOCOS DE LETRA DE MÚSICA (LYRICS STYLE STICKERS)
+   ========================================================================== */
+
+.lyrics-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.lyric-block {
+    background-color: var(--bg-card);
+    border-left: 3px solid var(--red-glow);
+    border-radius: 4px;
+    padding: 16px 20px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    max-width: 90%;
+    width: fit-content;
+}
+
+.lyric-block--left { align-self: flex-start; }
+.lyric-block--right { align-self: flex-end; border-left: none; border-right: 3px solid var(--red-glow); text-align: right; }
+.lyric-block--center { align-self: center; max-width: 100%; text-align: center; border-left: none; border-bottom: 3px solid var(--red-glow); border-radius: 4px; }
+
+.lyric-tag {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--red-glow);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.lyric-text {
+    font-family: var(--font-slab);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--white-vintage);
+}
+
+/* ==========================================================================
+   NOVO: BISCOITO DA SORTE ROMÂNTICO (❤️🥠)
+   ========================================================================== */
+
+.fortune-cookie-section {
+    width: 100%;
+}
+
+.fortune-cookie-card {
+    background: rgba(18, 16, 20, 0.85);
+    border: 1px solid rgba(244, 243, 239, 0.08);
+    border-radius: var(--border-radius);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    overflow: hidden;
+}
+
+.fortune-cookie-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    color: var(--white-vintage);
+    text-transform: uppercase;
+}
+
+.fortune-cookie-subtitle {
+    font-size: 0.72rem;
+    color: var(--white-muted);
+    line-height: 1.5;
+    max-width: 85%;
+}
+
+/* Wrapper Biscoito */
+.fortune-cookie-wrapper {
+    position: relative;
+    width: 160px;
+    height: 100px;
+    margin: 15px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.cookie-half {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+    will-change: transform;
+}
+
+.cookie-left {
+    left: calc(50% - 62px);
+    transform-origin: center right;
+}
+
+.cookie-right {
+    left: calc(50% - 28px);
+    transform-origin: center left;
+}
+
+/* Efeito quebrando */
+.fortune-cookie-wrapper.broken .cookie-left {
+    transform: translate(-30px, 18px) rotate(-35deg);
+    opacity: 0.5;
+    filter: grayscale(40%);
+}
+
+.fortune-cookie-wrapper.broken .cookie-right {
+    transform: translate(30px, 18px) rotate(35deg);
+    opacity: 0.5;
+    filter: grayscale(40%);
+}
+
+/* Papel do Biscoito (Papel da Sorte) */
+.cookie-paper-strip {
+    width: 100%;
+    max-width: 320px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: scale(0.9) translateY(-10px);
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cookie-paper-strip.revealed {
+    max-height: 120px;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    margin: 12px 0;
+}
+
+.cookie-paper-inner {
+    background-color: var(--white-vintage);
+    border: 1px dashed var(--red-glow);
+    padding: 14px 18px;
+    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transform: rotate(-1deg);
+}
+
+.cookie-paper-text {
+    font-family: var(--font-slab);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #111111;
+    font-weight: bold;
+}
+
+.cookie-action-btn {
+    background: transparent;
+    border: 1.5px solid var(--red-glow);
+    color: var(--white-vintage);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 12px rgba(189,8,28,0.25);
+}
+
+.cookie-action-btn:hover {
+    background: var(--red-glow);
+    box-shadow: 0 0 15px rgba(189, 8, 28, 0.5);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   NOVO: FITA CASSETE DE DECK & BILHETE SECRETO 📼
+   ========================================================================== */
+
+.cassette-section {
+    width: 100%;
+    text-align: center;
+}
+
+.cassette-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    color: var(--white-vintage);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.cassette-subtitle {
+    font-size: 0.7rem;
+    color: var(--white-muted);
+    margin-bottom: 22px;
+}
+
+.y2k-cassette-deck {
+    width: 100%;
+    background-color: #0d0c10;
+    border: 1.5px solid rgba(244, 243, 239, 0.08);
+    border-radius: 14px;
+    padding: 24px;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 12px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Fita Visual */
+.y2k-cassette {
+    width: 100%;
+    max-width: 250px;
+    height: 150px;
+    margin: 0 auto;
+    background: rgba(28, 25, 32, 0.9);
+    border: 2px solid rgba(244, 243, 239, 0.15);
+    border-radius: 8px;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    transition: var(--transition-smooth);
+}
+
+.y2k-cassette:hover {
+    border-color: var(--red-glow);
+    transform: scale(1.03) rotate(0.5deg);
+    box-shadow: 0 8px 25px rgba(189,8,28,0.25);
+}
+
+.cassette-body-shell {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(244, 243, 239, 0.08);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.cassette-label-paper {
+    background-color: var(--white-vintage);
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #111;
+    border-radius: 2px;
+    padding: 8px;
+    text-align: center;
+    border-top: 5px solid var(--red-glow);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+
+.cassette-label-title {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    display: block;
+    color: #0b0a0d;
+}
+
+.cassette-label-sub {
+    font-family: var(--font-body);
+    font-size: 0.52rem;
+    font-weight: 700;
+    color: #66666d;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+}
+
+.cassette-reels {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #080709;
+    border-radius: 6px;
+    height: 48px;
+    margin: 8px auto 0 auto;
+    width: 80%;
+    border: 1.5px solid rgba(244,243,239,0.06);
+    position: relative;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.9);
+}
+
+.reel {
+    width: 26px;
+    height: 26px;
+    background-color: #18161c;
+    border: 2px solid rgba(244, 243, 239, 0.2);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reel-spikes {
+    width: 14px;
+    height: 14px;
+    border: 2px dashed var(--white-vintage);
+    border-radius: 50%;
+    display: block;
+}
+
+/* Animação Spin */
+.spinning .reel-spikes {
+    animation: reel-rotation 1.5s linear infinite;
+}
+
+@keyframes reel-rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Carta Oculta / Bilhete do Tape Deck */
+.cassette-secret-letter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #110e14;
+    border: 2px solid var(--red-glow);
+    border-radius: 14px;
+    padding: 24px;
+    transform: translateY(105%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+    z-index: 15;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.8);
+}
+
+.cassette-secret-letter.revealed {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.secret-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: var(--white-vintage);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    line-height: 1;
+    transition: var(--transition-smooth);
+}
+
+.secret-close-btn:hover {
+    color: var(--red-glow);
+    transform: scale(1.1);
+}
+
+.secret-letter-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.secret-letter-tag {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--red-glow);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.secret-letter-text {
+    font-family: var(--font-slab);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--white-vintage);
+}
+
+/* ==========================================================================
+   SEÇÃO 4: TEXTO ROMÂNTICO (MESSAGE SECTION)
+   ========================================================================== */
+
+.message-section {
+    width: 100%;
+    background: radial-gradient(circle at top right, rgba(189,8,28,0.06), transparent 80%);
+    border: 1px solid rgba(244, 243, 239, 0.08);
+    border-radius: var(--border-radius);
+    padding: 35px 24px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.message-icon-wrapper {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.rose-icon {
+    filter: drop-shadow(0 0 8px rgba(189, 8, 28, 0.5));
+    animation: pulse-breathing 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-breathing {
+    0%, 100% { transform: scale(1); opacity: 0.95; }
+    50% { transform: scale(1.06); opacity: 1; filter: drop-shadow(0 0 14px rgba(189, 8, 28, 0.8)); }
+}
+
+.message-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.message-paragraph {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    font-weight: 300;
+    color: var(--white-vintage);
+    text-align: justify;
+}
+
+.message-highlight {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--white-vintage);
+    margin-top: 15px;
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+    border-top: 1px dashed rgba(244, 243, 239, 0.15);
+    padding-top: 20px;
+}
+
+/* ==========================================================================
+   SEÇÃO 5: SEÇÃO DO BOTÃO "ABRIR PRESENTE"
+   ========================================================================== */
+
+.action-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.action-hint-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--white-muted);
+    opacity: 0.75;
+}
+
+.glow-neon-button {
+    background: var(--bg-card);
+    color: var(--white-vintage);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    padding: 20px 40px;
+    border: 1px solid rgba(244, 243, 239, 0.25);
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: var(--transition-smooth);
+    animation: pulses-glow-border 2s infinite;
+}
+
+.glow-neon-button:hover {
+    border-color: var(--red-glow);
+    background: var(--red-glow);
+    box-shadow: 0 0 35px rgba(189, 8, 28, 0.8);
+    transform: translateY(-3px);
+}
+
+.glow-neon-button:active {
+    transform: translateY(1px);
+}
+
+.glow-neon-button__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.glow-neon-button__icon {
+    font-size: 1rem;
+    color: var(--red-glow);
+    transition: var(--transition-smooth);
+}
+
+.glow-neon-button:hover .glow-neon-button__icon {
+    color: var(--white-vintage);
+    transform: scale(1.2);
+}
+
+@keyframes pulses-glow-border {
+    0% { box-shadow: 0 0 0 0 rgba(189, 8, 28, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(189, 8, 28, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(189, 8, 28, 0); }
+}
+
+/* ==========================================================================
+   RODAPÉ MINIMALISTA
+   ========================================================================== */
+
+.site-footer {
+    width: 100%;
+    text-align: center;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--white-muted);
+    opacity: 0.45;
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   O PRESENTE: MODAL OVERLAY (TELA CHEIA COM GLASSMORPHISM)
+   ========================================================================== */
+
+.gift-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(6, 5, 7, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Permite scroll natural em telas de celular */
+    overflow-y: auto;
+    padding: 50px 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.gift-overlay:not(.is-hidden) {
+    opacity: 1;
+    pointer-events: auto;
+    animation: overlay-glow-in 0.6s ease;
+}
+
+@keyframes overlay-glow-in {
+    0% {
+        background: rgba(6, 5, 7, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+    100% {
+        background: rgba(6, 5, 7, 0.88);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
+}
+
+/* Botão de Fechar o Modal */
+.overlay-close-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(18, 16, 20, 0.85);
+    border: 1px solid rgba(244, 243, 239, 0.18);
+    color: var(--white-vintage);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 300;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: var(--transition-smooth);
+}
+
+.overlay-close-btn:hover {
+    background: var(--red-glow);
+    border-color: var(--red-glow);
+    transform: rotate(90deg) scale(1.05);
+}
+
+.gift-inner {
+    width: 100%;
+    max-width: 460px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 10005;
+}
+
+#overlay-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10001;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   CONSTRUÇÃO REALISTA DO TICKET "VALE TATUAGEM"
+   ========================================================================== */
+
+.ticket-card {
+    width: 100%;
+    background-color: var(--bg-card);
+    border-radius: 14px;
+    box-shadow: var(--shadow-vintage), 0 0 50px rgba(189, 8, 28, 0.18);
+    overflow: hidden;
+    transform: scale(0.92);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    z-index: 10002;
+}
+
+.gift-overlay:not(.is-hidden) .ticket-card {
+    box-shadow: 
+        0 0 0 1px rgba(189, 8, 28, 0.15),
+        0 25px 60px rgba(0, 0, 0, 0.8),
+        0 0 80px rgba(189, 8, 28, 0.25),
+        inset 0 1px 1px rgba(244, 243, 239, 0.08);
+}
+
+.gift-overlay:not(.is-hidden) .ticket-card {
+    transform: scale(1);
+    animation: ticket-entrance 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes ticket-entrance {
+    0% {
+        transform: scale(0.85) translateY(30px);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.02) translateY(0px);
+    }
+    100% {
+        transform: scale(1) translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* ────────────── PARTE SUPERIOR DO TICKET (BLACK SECTION) ────────────── */
+
+.ticket-main-section {
+    padding: 35px 28px 20px 28px;
+    position: relative;
+    background-color: #0b0a0d;
+}
+
+/* Fundo da Tatuagem */
+.ticket-artwork-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.ticket-art {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    opacity: 0.8;
+}
+
+.art-anchor {
+    top: -20px;
+    right: -40px;
+    transform: rotate(20deg);
+}
+
+.art-heart {
+    bottom: -10px;
+    left: -40px;
+    transform: rotate(-15deg);
+}
+
+/* Coração Superior */
+.ticket-header-deco {
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.ticket-heart-svg {
+    filter: drop-shadow(0 0 8px rgba(189, 8, 28, 0.65));
+    animation: heart-stub-pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes heart-stub-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+/* Marca / Logotipo do Ticket (VALE TATUAGEM) */
+.ticket-brand {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.ticket-brand__category {
+    font-family: var(--font-slab);
+    font-size: 1.4rem;
+    color: var(--white-vintage);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.ticket-brand__main-title {
+    font-family: var(--font-gothic);
+    font-size: 4rem;
+    color: var(--red-glow);
+    line-height: 1;
+    font-weight: normal;
+    text-shadow: 0 0 15px rgba(189, 8, 28, 0.45);
+}
+
+/* Conteúdo da Carta */
+.ticket-content {
+    position: relative;
+    z-index: 2;
+}
+
+.ticket-salutation {
+    font-family: var(--font-slab);
+    font-size: 1rem;
+    color: var(--white-vintage);
+    margin-bottom: 16px;
+    font-weight: bold;
+    border-bottom: 1px dashed rgba(244, 243, 239, 0.15);
+    padding-bottom: 8px;
+}
+
+.ticket-paragraph {
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-weight: 300;
+    text-align: justify;
+    color: var(--white-vintage);
+}
+
+/* Box do Cupom de Tatuagem (Voucher interno) */
+.voucher-box {
+    margin: 25px 0;
+    background: #141217;
+    border: 2px dashed var(--red-glow);
+    border-radius: 6px;
+    padding: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.voucher-box-inner {
+    border: 1px solid rgba(244, 243, 239, 0.12);
+    background: linear-gradient(180deg, #18161c, #0e0d11);
+    padding: 22px 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.voucher-tag-title {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--red-glow);
+    display: block;
+    text-shadow: 0 0 8px rgba(189,8,28,0.3);
+}
+
+.voucher-message {
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+    line-height: 1.6;
+    color: var(--white-vintage);
+    font-weight: 400;
+}
+
+.voucher-conditions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.72rem;
+    color: var(--white-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 8px 0;
+}
+
+.voucher-signatures {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(244, 243, 239, 0.08);
+    padding-top: 12px;
+    margin-top: 8px;
+    font-size: 0.7rem;
+    font-family: var(--font-slab);
+}
+
+.voucher-signature-line {
+    color: var(--white-vintage);
+}
+
+.voucher-signature-line strong {
+    color: var(--red-glow);
+}
+
+.voucher-id-code {
+    color: var(--white-muted);
+    font-size: 0.62rem;
+}
+
+/* ────────────── SERRILHADO DO TICKET (PERFORATION STYLE) ────────────── */
+
+.ticket-perforation {
+    position: relative;
+    height: 24px;
+    background-color: #0b0a0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: -1px 0; /* Evita falhas de renderização de subpixel */
+}
+
+/* Punch Holes Semicirculares no Serrilhado */
+.perforation-punch-left,
+.perforation-punch-right {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(6, 5, 7, 0.95); /* Deve corresponder à opacidade do modal */
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.perforation-punch-left { left: -12px; }
+.perforation-punch-right { right: -12px; }
+
+.perforation-dashed-line {
+    width: 100%;
+    border-top: 2px dashed rgba(244, 243, 239, 0.25);
+    position: absolute;
+    left: 0;
+    opacity: 0.7;
+}
+
+/* ────────────── PARTE INFERIOR DO TICKET (RED STUB SECTION) ────────────── */
+
+.ticket-stub-section {
+    padding: 30px 28px 35px 28px;
+    background-color: var(--red-glow);
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: inset 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.stub-brand-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stub-exclusive-badge {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.28em;
+    color: var(--white-vintage);
+}
+
+.stub-love-badge {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(254, 254, 254, 0.75);
+}
+
+/* Container de QR Code e Efeito Scan */
+.stub-qrcode-container {
+    width: 160px;
+    height: 160px;
+    background-color: var(--white-vintage);
+    border-radius: 4px;
+    padding: 18px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo customizado para imagem do vale no stub */
+.vale-tatuagem-stub {
+    background-color: transparent;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.vale-tatuagem-stub-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Cantoneiras Brancas Retro (Estilo ticket exclusivo) */
+.qrcode-corners .corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--white-vintage);
+    pointer-events: none;
+}
+
+.qrcode-corners .top-left { top: -8px; left: -8px; border-right: none; border-bottom: none; }
+.qrcode-corners .top-right { top: -8px; right: -8px; border-left: none; border-bottom: none; }
+.qrcode-corners .bottom-left { bottom: -8px; left: -8px; border-right: none; border-top: none; }
+.qrcode-corners .bottom-right { bottom: -8px; right: -8px; border-left: none; border-top: none; }
+
+/* Linha de Scan Neon */
+.qrcode-scan-line {
+    position: absolute;
+    left: 8px;
+    width: calc(100% - 16px);
+    height: 2px;
+    background-color: var(--red-glow);
+    box-shadow: 0 0 10px var(--red-glow), 0 0 4px var(--red-glow);
+    z-index: 4;
+    animation: scan-line-movement 2.6s infinite ease-in-out;
+}
+
+@keyframes scan-line-movement {
+    0%, 100% { top: 12px; }
+    50% { top: 148px; }
+}
+
+.qrcode-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.qrcode-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.15));
+}
+
+.qrcode-svg rect {
+    fill: #0b0a0d; /* Cor escura do QR Code para contrastar no branco */
+}
+
+/* Localização do Estúdio */
+.stub-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 90%;
+    border-top: 1px solid rgba(254, 254, 254, 0.2);
+    padding-top: 16px;
+    width: 100%;
+}
+
+.location-pin-icon {
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.stub-address-text {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--white-vintage);
+    text-align: center;
+    font-style: normal;
+}
+
+/* Símbolos Grunge Finais */
+.ticket-footer-symbols {
+    font-size: 0.8rem;
+    letter-spacing: 1em;
+    padding-left: 1em; /* Compensa o letter-spacing no alinhamento */
+    color: rgba(254, 254, 254, 0.45);
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   ANIMAÇÕES DE ENTRADA E SCROLL REVEAL (INTERSECTION OBSERVER)
+   ========================================================================== */
+
+.scroll-hidden {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lyric-block.scroll-hidden--left { transform: translateX(-25px); }
+.lyric-block.scroll-hidden--right { transform: translateX(25px); }
+
+.scroll-hidden.revealed {
+    opacity: 1;
+    transform: translate(0) !important;
+}
+
+@keyframes anim-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE E ADAPTAÇÃO PARA CELULARES (MOBILE FIRST)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    .site-wrapper {
+        padding: 35px 16px 50px 16px;
+        gap: 40px;
+    }
+    
+    .hero-section { gap: 12px; }
+    .hero-title { font-size: 2.1rem; }
+    .hero-quote { font-size: 0.86rem; line-height: 1.6; }
+    
+    .polaroid-float { max-width: 275px; }
+    .polaroid-frame { padding: 14px 14px 20px 14px; }
+    .polaroid-legend { padding-top: 14px; }
+    .polaroid-name { font-size: 0.85rem; margin-bottom: 4px; }
+    .polaroid-sub { font-size: 0.62rem; }
+    
+    .lyric-text { font-size: 0.84rem; }
+    .lyric-block { padding: 12px 16px; }
+
+    .message-section { padding: 28px 18px; }
+    .message-paragraph { font-size: 0.82rem; line-height: 1.6; }
+
+    /* Y2K MP3 Player Mobile */
+    .y2k-mp3-player { padding: 14px; }
+    .y2k-btn { width: 38px; height: 38px; font-size: 0.6rem; }
+    .y2k-btn--main { width: 50px; height: 50px; }
+    .y2k-bar { width: 7px; gap: 2px; }
+
+    /* Contador Mobile */
+    .timer-block { min-width: 58px; padding: 6px 4px; }
+    .timer-num { font-size: 1.4rem; }
+    .timer-label { font-size: 0.45rem; }
+
+    /* Biscoito Mobile */
+    .fortune-cookie-card { padding: 22px 14px; }
+    .fortune-cookie-wrapper { width: 140px; height: 80px; }
+    .cookie-half { width: 80px; height: 80px; }
+    .cookie-left { left: calc(50% - 54px); }
+    .cookie-right { left: calc(50% - 26px); }
+    .cookie-paper-inner { padding: 10px 14px; }
+    .cookie-paper-text { font-size: 0.78rem; }
+
+    /* Fita Cassete Mobile */
+    .y2k-cassette-deck { padding: 18px; }
+    .y2k-cassette { width: 100%; max-width: 210px; height: 130px; }
+    .cassette-reels { height: 38px; }
+    .reel { width: 22px; height: 22px; }
+    .reel-spikes { width: 12px; height: 12px; }
+
+    /* Botão Final */
+    .glow-neon-button {
+        padding: 16px 30px;
+        font-size: 0.78rem;
+        letter-spacing: 0.2em;
+    }
+    
+    /* Modal de Ticket no Celular */
+    .gift-overlay { padding: 60px 10px 25px 10px; }
+    
+    .ticket-card {
+        transform: scale(0.95);
+    }
+    
+    .gift-overlay:not(.is-hidden) .ticket-card {
+        transform: scale(1);
+    }
+    
+    .ticket-main-section { padding: 30px 20px 18px 20px; }
+    .ticket-brand__main-title { font-size: 3.2rem; }
+    .ticket-brand__category { font-size: 1.1rem; }
+    .ticket-salutation { font-size: 0.9rem; }
+    .ticket-paragraph { font-size: 0.8rem; line-height: 1.65; }
+    .voucher-box-inner { padding: 18px 12px; }
+    .voucher-message { font-size: 0.78rem; line-height: 1.5; }
+    .voucher-signatures { flex-direction: column; gap: 6px; text-align: center; }
+    
+    .ticket-stub-section { padding: 25px 20px 30px 20px; }
+    .stub-exclusive-badge { font-size: 0.95rem; }
+    .stub-qrcode-container { width: 140px; height: 140px; padding: 14px; }
+    
+    .vale-tatuagem-stub {
+        max-width: 160px;
+    }
+    
+    @keyframes scan-line-movement {
+        0%, 100% { top: 10px; }
+        50% { top: 128px; }
+    }
+    
+    .stub-address-text { font-size: 0.62rem; }
+    .overlay-close-btn { width: 40px; height: 40px; font-size: 1.6rem; }
+    
+    /* Melhorias na imagem do vale no mobile */
+    .ticket-physical-preview {
+        padding: 14px 10px 0 10px;
+        border-radius: 8px;
+    }
+    
+    .ticket-physical-img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow:
+            0 0 0 1.5px rgba(189, 8, 28, 0.35),
+            0 12px 35px rgba(0, 0, 0, 0.8),
+            0 0 25px rgba(189, 8, 28, 0.15);
+    }
+    
+    .ticket-physical-img:hover {
+        transform: scale(1.01);
+    }}
+
+/* ==========================================================================
+   IMAGEM DO VALE FÍSICO NO MODAL (VALE TATUAGEM.jpg)
+   ========================================================================== */
+
+/* Container da imagem do vale físico — atração principal do modal */
+.ticket-physical-preview {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 0 20px;
+    background: linear-gradient(135deg, rgba(189,8,28,0.05) 0%, transparent 50%, rgba(189,8,28,0.02) 100%);
+    position: relative;
+    border-radius: 12px;
+}
+
+/* A imagem propriamente dita do VALE TATUAGEM.jpg */
+.ticket-physical-img {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    box-shadow:
+        0 0 0 2px rgba(189, 8, 28, 0.4),
+        0 15px 50px rgba(0, 0, 0, 0.95),
+        0 5px 20px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(189, 8, 28, 0.2),
+        inset 0 1px 2px rgba(244, 243, 239, 0.05);
+    animation: ticket-float 6s infinite alternate ease-in-out;
+    filter: contrast(1.05) brightness(0.98) saturate(1.05);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    position: relative;
+}
+
+.ticket-physical-img:hover {
+    filter: contrast(1.08) brightness(1.0) saturate(1.12);
+    transform: scale(1.02);
+}
+
+@keyframes ticket-float {
+    0%   { transform: translateY(0px) translateX(0px) rotateZ(0deg); }
+    25%  { transform: translateY(-4px) translateX(1px) rotateZ(0.2deg); }
+    50%  { transform: translateY(-8px) translateX(0px) rotateZ(0deg); }
+    75%  { transform: translateY(-4px) translateX(-1px) rotateZ(-0.2deg); }
+    100% { transform: translateY(0px) translateX(0px) rotateZ(0deg); }
+}
+
+/* Notas do Vale (bullet points no canhoto) */
+.stub-notes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    border-top: 1px solid rgba(254, 254, 254, 0.2);
+    padding-top: 14px;
+    width: 100%;
+}
+
+.stub-note-item {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(254, 254, 254, 0.85);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* Responsividade da imagem do vale no mobile */
+@media (max-width: 480px) {
+    .ticket-physical-preview {
+        padding: 14px 14px 0 14px;
+    }
+
+    .ticket-physical-img {
+        border-radius: 6px;
+    }
+
+    .stub-note-item {
+        font-size: 0.62rem;
+    }
+}

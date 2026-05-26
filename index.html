@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Feliz Dia dos Namorados ❤️ — Dona do Meu Pensamento</title>
+
+    <!-- Meta tags SEO / Compartilhamento Social -->
+    <meta name="description" content="Um presente especial de Dia dos Namorados. Crossover alternativo Charlie Brown Jr. & Bad Bunny.">
+    <meta property="og:title" content="Feliz Dia dos Namorados ❤️">
+    <meta property="og:description" content="Você é a dona do meu pensamento. Sempre.">
+    <meta property="og:type" content="website">
+
+    <!--
+        GOOGLE FONTS
+        - Pirata One: Estilo gótico medieval para títulos e cupom (estilo de tatuagem)
+        - Special Elite: Estilo máquina de escrever analógica/grunge para o cupom e textos
+        - Rock Salt: Cursive rebelde/grunge, vibe skate culture dos anos 2000
+        - Bebas Neue: Display bold para estética MTV/urbana clássica e MP3 player
+        - Montserrat: Clean, moderna, excelente legibilidade para parágrafos
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Pirata+One&family=Rock+Salt&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <!-- Folha de Estilos Principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         OVERLAYS DE TEXTURA E AMBIENTE (ESTÉTICA ANALÓGICA VHS/MTV)
+         ═══════════════════════════════════════════════════════════════ -->
+
+    <!-- Grão de Filme Analógico (textura sutil de película 35mm) -->
+    <div class="film-grain" aria-hidden="true"></div>
+
+    <!-- Vinheta cinematográfica (bordas escuras profundas) -->
+    <div class="vignette" aria-hidden="true"></div>
+
+    <!-- Canvas para partículas de fagulhas vermelhas flutuantes -->
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         AUDIO LOCAL MOTOR (HTML5 - MAIS ROBUSTO QUE YOUTUBE)
+         ═══════════════════════════════════════════════════════════════ -->
+    <audio id="local-audio" loop preload="metadata" crossorigin="anonymous">
+        <source src="Charlie Brown Jr. - Dona do Meu Pensamento (Lyric Video).mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio local.
+    </audio>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         ILUSTRAÇÕES SVG VETORIAIS DE PLANO DE FUNDO (CROSSOVER SKATE + TROPICAL)
+         Fusão de Charlie Brown Jr. e Bad Bunny (Ojitos Lindos)
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="bg-svg-container" aria-hidden="true">
+        <!-- Borboleta / Mariposa Vintage (Superior Esquerda) -->
+        <svg class="bg-tattoo svg-moth" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50,45 C45,20 15,15 10,40 C5,55 20,70 45,80 C48,81 52,81 55,80 C80,70 95,55 90,40 C85,15 55,20 50,45 Z" fill="none" stroke="rgba(244,243,239,0.05)" stroke-width="1.5"/>
+            <path d="M50,45 C48,32 35,30 25,42 C18,50 22,60 48,70" fill="none" stroke="rgba(189,8,28,0.06)" stroke-width="1"/>
+            <path d="M50,45 C52,32 65,30 75,42 C82,50 78,60 52,70" fill="none" stroke="rgba(189,8,28,0.06)" stroke-width="1"/>
+            <circle cx="50" cy="45" r="3" fill="rgba(244,243,239,0.08)"/>
+        </svg>
+
+        <!-- Palmeira Tropical de Bad Bunny (Centro Direita) -->
+        <svg class="bg-tattoo svg-palm" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M55,110 Q65,70 50,35 Q48,30 52,28 Q56,26 55,32 Q68,68 59,110 Z" fill="rgba(244,243,239,0.04)"/>
+            <path d="M50,30 Q30,20 12,32 Q32,38 50,34 Z" fill="none" stroke="rgba(189,8,28,0.06)" stroke-width="1.2"/>
+            <path d="M52,28 Q72,12 90,24 Q72,30 54,30 Z" fill="none" stroke="rgba(189,8,28,0.06)" stroke-width="1.2"/>
+            <circle cx="50" cy="65" r="28" fill="none" stroke="rgba(189,8,28,0.03)" stroke-width="1.5" stroke-dasharray="4,4"/>
+        </svg>
+
+        <!-- Planchette de Ouija Mística (Inferior Esquerda) -->
+        <svg class="bg-tattoo svg-planchette" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50,15 C25,35 15,65 25,82 C30,90 40,88 50,83 C60,88 70,90 75,82 C85,65 75,35 50,15 Z" fill="none" stroke="rgba(244,243,239,0.04)" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="10" fill="none" stroke="rgba(189,8,28,0.06)" stroke-width="1.5"/>
+        </svg>
+
+        <!-- Rosa Clássica de Tatuagem (Inferior Direita) -->
+        <svg class="bg-tattoo svg-rose" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="15" fill="none" stroke="rgba(189,8,28,0.05)" stroke-width="2"/>
+            <path d="M50,18 C40,5 15,10 20,40 C24,60 50,82 50,82" fill="none" stroke="rgba(189,8,28,0.04)" stroke-width="1.5"/>
+            <path d="M50,18 C60,5 85,10 80,40 C76,60 50,82 50,82" fill="none" stroke="rgba(189,8,28,0.04)" stroke-width="1.5"/>
+        </svg>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         SITE WRAPPER (LAYOUT DE PÁGINA ÚNICA)
+         ═══════════════════════════════════════════════════════════════ -->
+    <main class="site-wrapper">
+
+        <!-- ──────────────────────────────────────────────────────────
+             SEÇÃO 1 — HERO / TOPO EMOCIONAL (LIMPO & DIRETO)
+             ────────────────────────────────────────────────────────── -->
+        <section class="hero-section">
+            
+            <div class="deco-stars-top" aria-hidden="true">★  ★  ★</div>
+
+            <!-- Título Principal com visual gótico -->
+            <h1 class="hero-title">feliz dia dos namorados</h1>
+            <span class="hero-heart-pulse" aria-hidden="true">❤</span>
+
+            <div class="vintage-tape-divider" aria-hidden="true">
+                <span class="star-sparkle">✦</span>
+                <span class="grunge-line"></span>
+                <span class="cassette-icon">❤</span>
+                <span class="grunge-line"></span>
+                <span class="star-sparkle">✦</span>
+            </div>
+
+        </section>
+
+        <!-- ──────────────────────────────────────────────────────────
+             PLAYER VISUAL MP3 Y2K (ESTILO WINAMP/IPOD) 🎵
+             Controle interativo para a trilha sonora MP3 local
+             ────────────────────────────────────────────────────────── -->
+        <section class="y2k-mp3-player" id="y2k-player" aria-label="Player de Música Retro">
+            <div class="y2k-player-body">
+                
+                <!-- Display LCD do MP3 -->
+                <div class="y2k-lcd-screen">
+                    <div class="y2k-lcd-header">
+                        <span class="y2k-battery">🔋 100%</span>
+                        <span class="y2k-status-indicator">⚡ ONLINE</span>
+                    </div>
+                    <!-- Letreiro Digital Rolante -->
+                    <div class="y2k-track-title-wrapper">
+                        <div class="y2k-track-title">
+                            tocando agora: Dona do Meu Pensamento - CBJR
+                        </div>
+                    </div>
+                    <!-- Equalizador de Barras de LED Neon -->
+                    <div class="y2k-equalizer">
+                        <div class="y2k-bar" style="height: 15%"></div>
+                        <div class="y2k-bar" style="height: 45%"></div>
+                        <div class="y2k-bar" style="height: 70%"></div>
+                        <div class="y2k-bar" style="height: 35%"></div>
+                        <div class="y2k-bar" style="height: 85%"></div>
+                        <div class="y2k-bar" style="height: 50%"></div>
+                        <div class="y2k-bar" style="height: 20%"></div>
+                        <div class="y2k-bar" style="height: 60%"></div>
+                    </div>
+                </div>
+
+                <!-- Painel de Controles Físicos do MP3 -->
+                <div class="y2k-controls">
+                    <button class="y2k-btn" id="y2k-prev" aria-label="Música anterior">⏮</button>
+                    <button class="y2k-btn y2k-btn--main" id="y2k-play" aria-label="Tocar">PLAY</button>
+                    <button class="y2k-btn y2k-btn--main" id="y2k-pause" aria-label="Pausar">PAUS</button>
+                    <button class="y2k-btn" id="y2k-next" aria-label="Próxima música">⏭</button>
+                </div>
+
+            </div>
+            <p class="y2k-player-caption">clique em play ou em qualquer lugar do site para ligar o som 🎧</p>
+        </section>
+
+        <!-- ──────────────────────────────────────────────────────────
+             SEÇÃO 2 — FOTO CENTRAL (ESTILO POLAROID INTERATIVA)
+             ────────────────────────────────────────────────────────── -->
+        <section class="photo-section" aria-label="Foto em Destaque">
+            
+            <div class="polaroid-float">
+                <div class="polaroid-frame">
+                    <div class="lens-flare" aria-hidden="true"></div>
+
+                    <!--
+                        [PERSONALIZAÇÃO - FOTO]:
+                        Altere "placeholder-casal.svg" para a foto real dela.
+                    -->
+                    <div class="polaroid-photo">
+                        <img 
+                            id="main-photo" 
+                            src="foto-casal.jpeg" 
+                            alt="Foto de nós" 
+                            class="photo-img"
+                        >
+                    </div>
+
+                    <div class="polaroid-legend">
+                        <span class="polaroid-sub">dona do meu pensamento</span>
+                    </div>
+                </div>
+
+                <!-- Stickers clicáveis -->
+                <span class="sticker sticker-star" title="Clique!" aria-hidden="true">★</span>
+                <span class="sticker sticker-heart" title="Clique!" aria-hidden="true">♥</span>
+                <span class="sticker sticker-bolt" title="Clique!" aria-hidden="true">✦</span>
+                <span class="sticker sticker-rose" title="Clique!" aria-hidden="true">✓</span>
+            </div>
+
+        </section>
+
+        <!-- ──────────────────────────────────────────────────────────
+             CONTADOR EMOCIONAL RETRO DIGITAL ⏳
+             Painel de placar eletrônico atualizado desde 23/11/2024
+             ────────────────────────────────────────────────────────── -->
+        <section class="retro-scoreboard" aria-label="Tempo Juntos">
+            <span class="scoreboard-title">desde que você virou dona do meu pensamento</span>
+            <div class="scoreboard-timer">
+                
+                <div class="timer-block">
+                    <span class="timer-num" id="count-days">00</span>
+                    <span class="timer-label">DIAS</span>
+                </div>
+                <div class="timer-divider">:</div>
+                <div class="timer-block">
+                    <span class="timer-num" id="count-hours">00</span>
+                    <span class="timer-label">HORAS</span>
+                </div>
+                <div class="timer-divider">:</div>
+                <div class="timer-block">
+                    <span class="timer-num" id="count-minutes">00</span>
+                    <span class="timer-label">MIN</span>
+                </div>
+                <div class="timer-divider">:</div>
+                <div class="timer-block">
+                    <span class="timer-num" id="count-seconds">00</span>
+                    <span class="timer-label">SEG</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ──────────────────────────────────────────────────────────
+             SEÇÃO 3 — FRASES DAS MÚSICAS (CBJR & BAD BUNNY)
+             ────────────────────────────────────────────────────────── -->
+        <section class="lyrics-section" aria-label="Trechos das músicas">
+            
+            <div class="lyric-block lyric-block--left">
+                <span class="lyric-tag" aria-hidden="true">🖤 CBJR</span>
+                <p class="lyric-text">"Pois partilhamos noites, ruas e sonhos..."</p>
+            </div>
+
+            <div class="lyric-block lyric-block--right">
+                <span class="lyric-tag" aria-hidden="true">🌴 BAD BUNNY</span>
+                <p class="lyric-text">"Y de repente el coração se me acelera..."</p>
+            </div>
+
+        </section>
+
+        <!-- ──────────────────────────────────────────────────────────
+             BISCOITO DA SORTE ROMÂNTICO ❤️🥠
+             Com animação 3D de quebra e mensagens rápidas (Bad Bunny & CBJR)
+             ────────────────────────────────────────────────────────── -->
+        <section class="fortune-cookie-section" aria-label="Biscoito da Sorte">
+            
+            <div class="fortune-cookie-card">
+                <h3 class="fortune-cookie-title">biscoito da sorte romântico</h3>
+                <p class="fortune-cookie-subtitle">clique no biscoito ou no botão para quebrá-lo e revelar um pensamento</p>
+                
+                <!-- Biscoito da Sorte em Vetores Interativos -->
+                <div class="fortune-cookie-wrapper" id="fortune-cookie">
+                    <div class="cookie-half cookie-left">
+                        <svg viewBox="0 0 100 100" width="100" height="100">
+                            <path d="M50,85 C15,85 10,45 35,20 C42,15 48,22 50,30 C45,45 45,65 50,85 Z" fill="#d2b48c" stroke="#b8860b" stroke-width="2"/>
+                            <path d="M38,48 Q46,42 45,58" fill="none" stroke="#8b6508" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div class="cookie-half cookie-right">
+                        <svg viewBox="0 0 100 100" width="100" height="100">
+                            <path d="M50,85 C85,85 90,45 65,20 C58,15 52,22 50,30 C55,45 55,65 50,85 Z" fill="#d2b48c" stroke="#b8860b" stroke-width="2"/>
+                            <path d="M62,48 Q54,42 55,58" fill="none" stroke="#8b6508" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- O Papelzinho da Sorte -->
+                <div class="cookie-paper-strip" id="cookie-paper">
+                    <div class="cookie-paper-inner">
+                        <p class="cookie-paper-text" id="cookie-text">
+                            "você virou meu pensamento favorito."
+                        </p>
+                    </div>
+                </div>
+
+                <button class="cookie-action-btn" id="open-cookie-btn">abrir biscoito da sorte</button>
+
+            </div>
+
+        </section>
+
+        <!-- ──────────────────────────────────────────────────────────
+             FITA CASSETE INTERATIVA COM BILHETE SECRETO 📼
+             Com som sintético gerado via Web Audio API
+             ────────────────────────────────────────────────────────── -->
+        <section class="cassette-section" aria-label="Fita Cassete Oculta">
+            
+            <h3 class="cassette-title">fita cassete de memórias 📼</h3>
+            <p class="cassette-subtitle">clique na fita para dar play e ouvir a nossa sintonia</p>
+            
+            <!-- Fita Cassete Estilo Translucido Y2K -->
+            <div class="y2k-cassette-deck">
+                <div class="y2k-cassette" id="interactive-cassette">
+                    
+                    <div class="cassette-body-shell">
+                        <!-- Etiqueta de Papel da Fita -->
+                        <div class="cassette-label-paper">
+                            <span class="cassette-label-title">CBJR × BAD BUNNY</span>
+                            <span class="cassette-label-sub">Sintonia Alternativa</span>
+                        </div>
+                        <!-- Bobinas Internas -->
+                        <div class="cassette-reels">
+                            <div class="reel reel-left">
+                                <span class="reel-spikes"></span>
+                            </div>
+                            <div class="reel reel-right">
+                                <span class="reel-spikes"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bilhete Secreto Oculto da Fita (Slide Up) -->
+                <div class="cassette-secret-letter" id="cassette-secret">
+                    <button class="secret-close-btn" id="close-secret-btn" aria-label="Fechar">&times;</button>
+                    <div class="secret-letter-body">
+                        <span class="secret-letter-tag">Tape Deck: Lado A</span>
+                        <p class="secret-letter-text">
+                            "Ps: Algumas pessoas são música. Você é a minha preferida. Yo contigo me siento bien. 🌴🖤"
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ──────────────────────────────────────────────────────────
+             SEÇÃO 4 — MENSAGEM ORIGINAL CONCISA (SEM TEXTOS LONGOS)
+             ────────────────────────────────────────────────────────── -->
+        <section class="message-section" aria-label="Nossa Conexão">
+            
+            <div class="message-icon-wrapper" aria-hidden="true">
+                <svg viewBox="0 0 100 100" width="50" height="50" class="rose-icon">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(189,8,28,0.5)" stroke-width="2"/>
+                    <path d="M50,20 C35,20 25,32 30,48 C36,65 50,80 50,80 C50,80 64,65 70,48 C75,32 65,20 50,20 Z" fill="rgba(189,8,28,0.15)" stroke="rgba(189,8,28,0.8)" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <div class="message-body">
+                <p class="message-paragraph">
+                    Tem encontros que parecem sintonia pura: o calor de um final de tarde latino misturado à rebeldia de uma madrugada feliz nas ruas da cidade. Você uniu o meu cais com o seu riso, transformando nossa história na melodia perfeita.
+                </p>
+                <p class="message-highlight">
+                    "tus ojos son mi lugar favorito." 👁️❤️
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ──────────────────────────────────────────────────────────
+             SEÇÃO 5 — BOTÃO DE AÇÃO "ABRIR SEU PRESENTE"
+             ────────────────────────────────────────────────────────── -->
+        <section class="action-section" aria-label="Abertura do Presente">
+            
+            <p class="action-hint-label">um vale especial aguarda você</p>
+
+            <button id="open-gift-btn" class="glow-neon-button" aria-label="Revelar vale presente">
+                <span class="glow-neon-button__inner">
+                    <span class="glow-neon-button__icon" aria-hidden="true">♥</span>
+                    abrir seu presente
+                </span>
+            </button>
+
+        </section>
+
+        <!-- ──────────────────────────────────────────────────────────
+             RODAPÉ MINIMALISTA (ALTAMENTE SIMPLIFICADO)
+             ────────────────────────────────────────────────────────── -->
+        <footer class="site-footer">
+            <p>feito com amor ❤</p>
+        </footer>
+
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PRESENTE: OVERLAY EM TELA CHEIA (MODAL) COM TICKET VINTAGE
+         Réplica digital e responsiva, com a imagem VALE TATUAGEM.jpg real
+         ═══════════════════════════════════════════════════════════════ -->
+    <div id="gift-overlay" class="gift-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="gift-card-title">
+        
+        <button id="close-gift-btn" class="overlay-close-btn" aria-label="Fechar presente">&times;</button>
+
+        <div class="gift-inner">
+            <canvas id="overlay-canvas" aria-hidden="true"></canvas>
+
+            <!-- TICKET VINTAGE / CUPOM TATUAGEM CONCISO -->
+            <article class="ticket-card" id="gift-card-title">
+
+                <!-- PARTE INFERIOR DO TICKET (CANHOTO RED COM DETALHES INTERATIVOS) -->
+                <!-- Mantém os dados de endereço do vale físico e QR Code dinâmico -->
+                <div class="ticket-stub-section">
+                    
+                    <div class="stub-brand-details">
+                        <span class="stub-exclusive-badge">VALE EXCLUSIVO</span>
+                        <span class="stub-love-badge">FEITO COM AMOR</span>
+                    </div>
+
+                    <!-- IMAGEM DO VALE TATUAGEM -->
+                    <div class="stub-qrcode-container vale-tatuagem-stub" aria-label="Vale Tatuagem">
+                        <img src="VALE TATUAGEM.jpg" alt="Vale Tatuagem" class="vale-tatuagem-stub-img" />
+                    </div>
+
+                    <!-- Endereço real contido em VALE TATUAGEM.jpg -->
+                    <div class="stub-location">
+                        <svg class="location-pin-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#f4f3ef"/>
+                        </svg>
+                        <address class="stub-address-text">
+                            AV. BRIG. FARIA LIMA, 1616 - JARDIM PAULISTANO, SÃO PAULO - ESTUDIO 604
+                        </address>
+                    </div>
+
+                    <!-- Detalhes do voucher individual conciso -->
+                    <div class="stub-notes">
+                        <span class="stub-note-item">✦ Sessão de tatuagem individual</span>
+                        <span class="stub-note-item">✦ Escolha de arte e estilo livres para você</span>
+                    </div>
+
+                    <div class="ticket-footer-symbols" aria-hidden="true"></div>
+
+                </div>
+
+            </article>
+
+        </div>
+    </div>
+
+    <!-- Script de Interatividade e Áudio -->
+    <script src="script.js"></script>
+
+</body>
+</html>
